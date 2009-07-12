@@ -1,17 +1,15 @@
-Copied from: http://www.kudelabs.com/2009/07/12/simple-svnhelper-for-rails-applications                                                                                                                                       
-
-<em>Ô­´´£º»ÆÎÄ±ó</em>
-Õâ¸öĞ¡³ÌĞòÊÇ×¨ÃÅĞ´¸øÊ¹ÓÃSVN°æ±¾¿ØÖÆµÄRailsÓ¦ÓÃ³ÌĞò¡£
-ÓĞÁËËü£¬ÎÒÃÇ¿ÉÒÔÔÚÄ³¸öÌØ¶¨µÄÍøÒ³ÉÏÃæÖ±½Ó¿´µ½ÎÒÃÇµÄ³ÌĞòrevision°æ±¾,»¹ÓĞ×îºóµÄĞŞ¸ÄÈÕÆÚ¡£
-ËüµÄÊµÏÖÔ­ÀíºÜ¼òµ¥£¬¾ÍÊÇ²é¿´.svn/entriesÎÄ¼şÀïÃæµÄĞŞ¸Ä¼ÇÂ¼¡£
-Ò»°ãÓÃ·¨£¬°ÑÕâ¸öÎÄ¼ş¸´ÖÆµ½root/libÄ¿Â¼ÏÂÃæ£¬È»ºóÔÚenvironment.rbÀïÃæÓÃÈ«¾Ö±äÁ¿¼ÇÂ¼Ëü£º
+                                                                                                                                       <em>åŸåˆ›ï¼šé»„æ–‡æ–Œ</em>
+è¿™ä¸ªå°ç¨‹åºæ˜¯ä¸“é—¨å†™ç»™ä½¿ç”¨SVNç‰ˆæœ¬æ§åˆ¶çš„Railsåº”ç”¨ç¨‹åºã€‚
+æœ‰äº†å®ƒï¼Œæˆ‘ä»¬å¯ä»¥åœ¨æŸä¸ªç‰¹å®šçš„ç½‘é¡µä¸Šé¢ç›´æ¥çœ‹åˆ°æˆ‘ä»¬çš„ç¨‹åºrevisionç‰ˆæœ¬,è¿˜æœ‰æœ€åçš„ä¿®æ”¹æ—¥æœŸã€‚
+å®ƒçš„å®ç°åŸç†å¾ˆç®€å•ï¼Œå°±æ˜¯æŸ¥çœ‹.svn/entriesæ–‡ä»¶é‡Œé¢çš„ä¿®æ”¹è®°å½•ã€‚
+ä¸€èˆ¬ç”¨æ³•ï¼ŒæŠŠè¿™ä¸ªæ–‡ä»¶å¤åˆ¶åˆ°root/libç›®å½•ä¸‹é¢ï¼Œç„¶ååœ¨environment.rbé‡Œé¢ç”¨å…¨å±€å˜é‡è®°å½•å®ƒï¼š
 <code>$current_version = SVNHelper.version(RAILS_ROOT)</code>
-ÕâÑù×Ó£¬Äã¿ÉÒÔÔÚerbÒ³ÃæÀïÃæµ÷ÓÃÕâ¸ö±äÁ¿£¬±ÈÈç£º<code>³ÌĞò°æ±¾:<%=$current_version.rev_with_date%></code>
-Í¬Ê±£¬Ëü»áÔÚÃ¿´Î·şÎñÆ÷ÖØÆôµÄÊ±ºòÖØĞÂ¼ÇÂ¼×îĞÂĞŞ¸ÄµÄsvn°æ±¾¡£
+è¿™æ ·å­ï¼Œä½ å¯ä»¥åœ¨erbé¡µé¢é‡Œé¢è°ƒç”¨è¿™ä¸ªå˜é‡ï¼Œæ¯”å¦‚ï¼š<code>ç¨‹åºç‰ˆæœ¬:<%=$current_version.rev_with_date%></code>
+åŒæ—¶ï¼Œå®ƒä¼šåœ¨æ¯æ¬¡æœåŠ¡å™¨é‡å¯çš„æ—¶å€™é‡æ–°è®°å½•æœ€æ–°ä¿®æ”¹çš„svnç‰ˆæœ¬ã€‚
 
 This little library is specialized for those Rails Applications which are using SVN as version control. It allows us to view the revision and the last modified date of our application on the website.
-It¡¯s rather simple to implement such function, we just look into¡®.svn/enries¡¯file in RAILS_ROOT and record the things we want inside.
-How to use it?
+Itâ€™s rather simple to implement such function, we just look intoâ€˜.svn/enriesâ€™file in RAILS_ROOT and record the things we want inside.
+<strong>How to use it?</strong>
 Please copy the file into root/lib, and set up a global variable in config/environment.rb:
 <code>$current_version = SVNHelper.version(RAILS_ROOT)</code>
 And then you can use this variable everywhere you wish to see the revision and last modified date. Also, its value may be changed each time you restart the server if any changes to the SVN found.
