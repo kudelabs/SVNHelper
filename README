@@ -1,0 +1,17 @@
+Copied from: http://www.kudelabs.com/2009/07/12/simple-svnhelper-for-rails-applications                                                                                                                                       
+
+<em>原创：黄文斌</em>
+这个小程序是专门写给使用SVN版本控制的Rails应用程序。
+有了它，我们可以在某个特定的网页上面直接看到我们的程序revision版本,还有最后的修改日期。
+它的实现原理很简单，就是查看.svn/entries文件里面的修改记录。
+一般用法，把这个文件复制到root/lib目录下面，然后在environment.rb里面用全局变量记录它：
+<code>$current_version = SVNHelper.version(RAILS_ROOT)</code>
+这样子，你可以在erb页面里面调用这个变量，比如：<code>程序版本:<%=$current_version.rev_with_date%></code>
+同时，它会在每次服务器重启的时候重新记录最新修改的svn版本。
+
+This little library is specialized for those Rails Applications which are using SVN as version control. It allows us to view the revision and the last modified date of our application on the website.
+It’s rather simple to implement such function, we just look into‘.svn/enries’file in RAILS_ROOT and record the things we want inside.
+How to use it?
+Please copy the file into root/lib, and set up a global variable in config/environment.rb:
+<code>$current_version = SVNHelper.version(RAILS_ROOT)</code>
+And then you can use this variable everywhere you wish to see the revision and last modified date. Also, its value may be changed each time you restart the server if any changes to the SVN found.
