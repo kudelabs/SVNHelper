@@ -1,4 +1,4 @@
-Copied from: http://www.kudelabs.com/2009/07/12/simple-svnhelper-for-rails-applications#                                                                                                                                  原创：黄文斌 
+Copied from: http://www.kudelabs.com/2009/07/12/simple-svnhelper-for-rails-applications#                                                                                                                                 原创：黄文斌 
 这个小程序是专门写给使用SVN版本控制的Rails应用程序。
 有了它，我们可以在某个特定的网页上面直接看到我们的程序revision版本,还有最后的修改日期。
 它的实现原理很简单，就是查看.svn/entries文件里面的修改记录。
