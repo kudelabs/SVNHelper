@@ -10,19 +10,18 @@ class SVNHelper
  alias rev version 
 
  def self.version(root)
-   
+   file = File.join(root, SVN_FILE)  
+   raise "Specified SVN file [#{file}] does not exist, can not get the revision information."  unless File.exists?(file)
+  
+  #third line is the revision name, ninth line is the last modified date.
    begin
-     file = File.join(root, SVN_FILE)  
-     raise "Specified SVN file [#{file}] does not exist, can not get the revision information."  unless File.exists?(file)
-     #third line is the revision name, ninth line is the last modified date.
      lines   = IO.readlines(file)
      version = self.new(lines[3].chomp,         
                         lines[9].chomp.to_time)
    rescue
     #in case of a change of SVN kernel, just return 'no_svn' and we will look back here.
     version = self.new('NO_SVN',Date.today)     
-   end
-   
+   end 
    version
    
  end
