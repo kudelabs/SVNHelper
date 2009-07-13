@@ -8,11 +8,7 @@ class SVNHelper
    @date     = date
  end
  alias rev version 
- 
- def self.strip_break_line_flag(l)
-   l.gsub(/\n$/, '')
- end
- 
+
  def self.version(root)
    
    begin
@@ -20,8 +16,8 @@ class SVNHelper
      raise "Specified SVN file [#{file}] does not exist, can not get the revision information."  unless File.exists?(file)
      #third line is the revision name, ninth line is the last modified date.
      lines   = IO.readlines(file)
-     version = self.new(strip_break_line_flag(lines[3]),         
-                        strip_break_line_flag(lines[9]).to_time)
+     version = self.new(lines[3].chomp,         
+                        lines[9].chomp.to_time)
    rescue
     #in case of a change of SVN kernel, just return 'no_svn' and we will look back here.
     version = self.new('NO_SVN',Date.today)     
