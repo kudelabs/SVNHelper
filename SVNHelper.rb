@@ -35,8 +35,9 @@ class SVNHelper
      end
      version = self.new(info)
     rescue
-     # in case of a change of svn info command or the application is not using svn, just return 'no_svn' and we will look back here.
-     version = self.new({:revision=>'NO_SVN'})
+      # in case of a change of svn info command or the application is not using svn, just return 'no_svn' and we will look back here.
+      # the server maybe a non-english one, which returns some svn_info that we don't recognize, return 'no_svn' as well
+      version = self.new({:revision=>'NO_SVN',:last_changed_rev=>'NO_SVN'})
     end 
     version.freeze 
     
