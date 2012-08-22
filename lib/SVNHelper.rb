@@ -1,3 +1,4 @@
+require 'svn_helper/version'
 class SVNHelper
 
  attr_accessor :revision, :date, :last_changed, :info
@@ -67,7 +68,7 @@ class SVNHelper
     rev
   end
   def rev_with_date
-   %{#{version} [#{date.to_time.strftime("%y%m%d.%H%M%S")}]}
+   %{#{rev} [#{date.to_time.strftime("%y%m%d.%H%M%S")}]}
   end
  
 end
