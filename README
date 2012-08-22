@@ -27,7 +27,7 @@ Example
  
 Install:
 Gemfile:
-  gem 'SVNHelper', git: 'git@github.com:kudelabs/SVNHelper.git'
+  gem 'SVNHelper', git: 'git://github.com/kudelabs/SVNHelper.git'
 
 Use:
  Set up a global variable in config/environment.rb:
